@@ -35,7 +35,7 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd bot && python3 main.py"
+args = "python3 main.py"
 waitForPort = 8099
 
 [agent]
