@@ -140,6 +140,7 @@ token = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(token, parse_mode="HTML")
 
 admin = int(os.environ.get('ADMIN_ID'))
+BOT_START_TIME = time.time()
 
 command_usage = {}
 
@@ -5426,6 +5427,98 @@ def dbsearch_command(message):
             text += f"<b>{i}. {query[:50]}\n   └ 📅 {ts}\n\n</b>"
 
     bot.reply_to(message, text)
+
+@bot.message_handler(commands=["ping"])
+def ping_command(message):
+    log_command(message, query_type='command')
+    sent = bot.reply_to(message, "🏓 <b>Pinging...</b>")
+    latency_ms = round((time.time() - message.date) * 1000)
+    bot.edit_message_text(
+        chat_id=message.chat.id,
+        message_id=sent.message_id,
+        text=(
+            "┌─────────────────────────┐\n"
+            "│  🏓  <b>PONG!</b>                 │\n"
+            "├─────────────────────────┤\n"
+            f"│  ⚡ Latency: <b>{latency_ms} ms</b>       │\n"
+            "│  ✅ Status:  <b>Online</b>        │\n"
+            "│  🤖 Bot:     <b>Responsive</b>    │\n"
+            "└─────────────────────────┘"
+        ),
+        parse_mode="HTML"
+    )
+
+
+@bot.message_handler(commands=["status"])
+def status_command(message):
+    log_command(message, query_type='command')
+    uptime_secs = int(time.time() - BOT_START_TIME)
+    hours   = uptime_secs // 3600
+    minutes = (uptime_secs % 3600) // 60
+    seconds = uptime_secs % 60
+
+    env = "☁️ Replit" if os.environ.get("REPL_ID") else "🖥️ EC2 / VPS"
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    bot.reply_to(
+        message,
+        "╔══════════════════════════╗\n"
+        "║   🤖  <b>BOT STATUS</b>           ║\n"
+        "╠══════════════════════════╣\n"
+        "║  🟢 State:  <b>Running</b>         ║\n"
+        f"║  ⏱ Uptime: <b>{hours:02d}h {minutes:02d}m {seconds:02d}s</b>    ║\n"
+        f"║  🌐 Env:    <b>{env}</b>     ║\n"
+        "║  🔄 Mode:   <b>Polling</b>         ║\n"
+        f"║  📅 Time:   <b>{now_str}</b> ║\n"
+        "╚══════════════════════════╝"
+    )
+
+
+@bot.message_handler(commands=["stats"])
+def stats_command(message):
+    log_command(message, query_type='command')
+    uid = message.from_user.id
+
+    total_users   = db.get_user_count()
+    total_cmds    = db.get_all_queries_count()
+    total_checks  = db.get_card_checks_count()
+    today         = db.get_today_stats()
+    gw_stats      = db.get_gateway_stats()
+
+    uptime_secs = int(time.time() - BOT_START_TIME)
+    hours   = uptime_secs // 3600
+    minutes = (uptime_secs % 3600) // 60
+
+    gw_lines = ""
+    for gw, total, approved in gw_stats[:4]:
+        gw_label = (gw or "Unknown")[:10]
+        gw_lines += f"║  • <b>{gw_label}</b>: {total} checks ({approved} ✅)\n"
+    if not gw_lines:
+        gw_lines = "║  • No gateway data yet\n"
+
+    bot.reply_to(
+        message,
+        "╔══════════════════════════╗\n"
+        "║   📊  <b>BOT STATISTICS</b>        ║\n"
+        "╠══════════════════════════╣\n"
+        "║  👥  <b>Global</b>                  ║\n"
+        f"║  ├ Users:       <b>{total_users}</b>\n"
+        f"║  ├ Commands:    <b>{total_cmds}</b>\n"
+        f"║  └ Card Checks: <b>{total_checks}</b>\n"
+        "╠══════════════════════════╣\n"
+        "║  📅  <b>Today</b>                   ║\n"
+        f"║  ├ Active Users: <b>{today['active_users']}</b>\n"
+        f"║  ├ Commands:     <b>{today['queries']}</b>\n"
+        f"║  ├ CC Checks:    <b>{today['checks']}</b>\n"
+        f"║  └ Approved:     <b>{today['approved']} ✅</b>\n"
+        "╠══════════════════════════╣\n"
+        "║  🌐  <b>Gateways</b>                ║\n"
+        + gw_lines +
+        "╠══════════════════════════╣\n"
+        f"║  ⏱ Uptime: <b>{hours:02d}h {minutes:02d}m</b>           ║\n"
+        "╚══════════════════════════╝"
+    )
+
 
 def auto_backup_scheduler():
     import schedule as sched_module
