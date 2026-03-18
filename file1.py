@@ -5585,12 +5585,46 @@ print("Bot Start On ✅ ")
 print(f"Admin ID: {admin}")
 print("للتأكد من صلاحياتك، أرسل /amadmin")
 
+# ── Online notification ───────────────────────────────────────────────────────
+try:
+    import platform, datetime as _dt
+    _now = _dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    _online_msg = (
+        f"<b>╔══════════════════════╗\n"
+        f"║  🟢  BOT IS ONLINE!   ║\n"
+        f"╚══════════════════════╝\n\n"
+        f"🤖 <b>ST-CHECKER-BOT</b> started successfully!\n\n"
+        f"⏰ Time   : <code>{_now}</code>\n"
+        f"🖥️ Host   : <code>{platform.node()}</code>\n"
+        f"🐍 Python : <code>{platform.python_version()}</code>\n"
+        f"📡 Status : <b>Polling Active ✅</b>\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"[⌤] YADISTAN - 🍀</b>"
+    )
+    bot.send_message(admin, _online_msg, parse_mode='HTML')
+    print("[BOT] Online notification sent to admin.")
+except Exception as _e:
+    print(f"[BOT] Could not send online notification: {_e}")
+# ─────────────────────────────────────────────────────────────────────────────
+
 import sys
 while True:
     try:
         bot.infinity_polling(timeout=60, long_polling_timeout=30, logger_level=None)
     except KeyboardInterrupt:
         print("[BOT] Stopped by user.")
+        try:
+            import datetime as _dt2
+            _now2 = _dt2.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            bot.send_message(admin,
+                f"<b>╔══════════════════════╗\n"
+                f"║  🔴  BOT IS OFFLINE!  ║\n"
+                f"╚══════════════════════╝\n\n"
+                f"⛔ Bot stopped manually.\n\n"
+                f"⏰ Time: <code>{_now2}</code>\n\n"
+                f"[⌤] YADISTAN - 🍀</b>", parse_mode='HTML')
+        except:
+            pass
         sys.exit(0)
     except Exception as e:
         print(f"[BOT] Polling error: {e}. Reconnecting in 10s...")
