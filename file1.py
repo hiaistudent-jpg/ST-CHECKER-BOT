@@ -1753,7 +1753,7 @@ def start(message):
             existing_data.update(new_data)
             with open("data.json", 'w', encoding='utf-8') as json_file:
                 json.dump(existing_data, json_file, ensure_ascii=False, indent=4)
-        if BL == '𝗙𝗥𝗘𝗘':        
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:        
             keyboard = types.InlineKeyboardMarkup()
             contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
             keyboard.add(contact_button)
@@ -2116,7 +2116,7 @@ def paypal_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
         
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -2211,7 +2211,7 @@ def passed_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
         
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -2304,7 +2304,7 @@ def stripe_charge_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
         
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -2745,7 +2745,7 @@ def checkout_combined_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
 
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -3232,7 +3232,7 @@ def stripe_checkout_gen_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
 
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -3501,7 +3501,7 @@ def stripe_mass_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
         
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         
@@ -3617,7 +3617,7 @@ def stripe_auth_command(message):
         except:
             BL = '𝗙𝗥𝗘𝗘'
         
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
 
@@ -3689,7 +3689,7 @@ def chk_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         allowed, wait = check_rate_limit(id, BL)
@@ -3748,7 +3748,7 @@ def chkm_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         cards = _get_cards_from_message(message)
@@ -3819,7 +3819,7 @@ def vbvm_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         cards = _get_cards_from_message(message)
@@ -3893,7 +3893,7 @@ def sk_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         # ── Flexible parsing: current msg + reply msg ──────────────────
@@ -3985,7 +3985,7 @@ def skm_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         # ── Flexible parsing: current msg + reply msg ──────────────────
@@ -4091,7 +4091,7 @@ def skchk_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         try:
@@ -4202,7 +4202,7 @@ def msk_command(message):
             BL = json_data[str(id)]['plan']
         except:
             BL = '𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             bot.reply_to(message, "<b>❌ 𝗧𝗵𝗶𝘀 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 𝗶𝘀 𝗼𝗻𝗹𝘆 𝗳𝗼𝗿 𝗩𝗜𝗣 𝘂𝘀𝗲𝗿𝘀.</b>")
             return
         try:
@@ -4292,7 +4292,7 @@ def main(message):
         try:BL=(json_data[str(id)]['plan'])
         except:
             BL='𝗙𝗥𝗘𝗘'
-        if BL == '𝗙𝗥𝗘𝗘':
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
             with open("data.json", 'r', encoding='utf-8') as json_file:
                 existing_data = json.load(json_file)
             new_data = {
