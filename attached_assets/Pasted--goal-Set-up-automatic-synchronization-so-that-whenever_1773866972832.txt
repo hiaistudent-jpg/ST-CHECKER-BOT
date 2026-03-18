@@ -1,0 +1,107 @@
+{
+  "goal": "Set up automatic synchronization so that whenever new code is pushed to GitHub, the EC2 server automatically pulls updates and restarts the Telegram bot without manual intervention.",
+  "context": {
+    "platforms": ["GitHub", "AWS EC2"],
+    "project_type": "Python Telegram Bot",
+    "deployment": "Auto CI/CD sync",
+    "trigger": "git push to main branch"
+  },
+  "instructions": [
+    {
+      "task": "Prepare EC2 environment",
+      "details": [
+        "Ensure git is installed",
+        "Ensure project is cloned on EC2",
+        "Ensure bot runs via a process manager (screen, tmux, or nohup)"
+      ]
+    },
+    {
+      "task": "Create auto-update script",
+      "details": [
+        "Create update.sh script on EC2",
+        "Script should:",
+        "1. Navigate to project folder",
+        "2. Run git pull origin main",
+        "3. Install new dependencies (pip install -r requirements.txt)",
+        "4. Restart bot process safely"
+      ]
+    },
+    {
+      "task": "Handle bot restart",
+      "details": [
+        "Stop existing bot process",
+        "Restart using nohup or screen",
+        "Ensure no duplicate processes run"
+      ]
+    },
+    {
+      "task": "Set up GitHub Webhook",
+      "details": [
+        "Create webhook in GitHub repo",
+        "Trigger on push events",
+        "Point webhook to EC2 public IP endpoint"
+      ]
+    },
+    {
+      "task": "Create webhook listener",
+      "details": [
+        "Build a small Flask server on EC2",
+        "Listen for POST requests from GitHub",
+        "On valid request, execute update.sh"
+      ]
+    },
+    {
+      "task": "Secure webhook",
+      "details": [
+        "Validate GitHub secret token",
+        "Reject unauthorized requests",
+        "Log all webhook activity"
+      ]
+    },
+    {
+      "task": "Run webhook service",
+      "details": [
+        "Run Flask app in background",
+        "Use nohup or systemd for persistence"
+      ]
+    },
+    {
+      "task": "Optional improvement",
+      "details": [
+        "Use systemd service for bot auto-restart",
+        "Add logging for debugging",
+        "Handle failure cases gracefully"
+      ]
+    },
+    {
+      "task": "Testing",
+      "details": [
+        "Push small change to GitHub",
+        "Verify EC2 auto pulls code",
+        "Confirm bot restarts automatically"
+      ]
+    }
+  ],
+  "expected_files": [
+    "update.sh",
+    "webhook_listener.py"
+  ],
+  "validation": {
+    "success_conditions": [
+      "git push triggers EC2 update",
+      "Code automatically pulled",
+      "Bot restarts without manual command",
+      "No duplicate bot instances"
+    ],
+    "error_handling": [
+      "If webhook fails, log error",
+      "If git pull fails, abort safely",
+      "If restart fails, log and retry"
+    ]
+  },
+  "output_requirements": {
+    "automation_level": "full",
+    "manual_steps": "minimal",
+    "final_message": "Auto-sync system working successfully"
+  }
+}

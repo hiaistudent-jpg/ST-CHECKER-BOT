@@ -1,0 +1,16 @@
+[Unit]
+Description=ST-CHECKER GitHub Webhook Listener
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/st-checker-bot
+Environment="WEBHOOK_SECRET=YOUR_SECRET_HERE"
+Environment="WEBHOOK_PORT=9000"
+ExecStart=/home/ubuntu/st-checker-bot/venv/bin/python3 /home/ubuntu/st-checker-bot/webhook_listener.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

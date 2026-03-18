@@ -20,7 +20,12 @@ env/
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Log files
 *.log
+webhook.log
+update.log
+bot.log
 
 # Environment / Secrets — NEVER commit these
 .env
