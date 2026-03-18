@@ -1,0 +1,41 @@
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ cd
+(venv) ubuntu@ip-172-31-32-4:~$ cd ~/st-checker-bot
+git pull origin main
+sudo systemctl restart st-checker-bot
+journalctl -u st-checker-bot -f
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 655 bytes | 655.00 KiB/s, done.
+From https://github.com/hiaistudent-jpg/ST-CHECKER-BOT
+ * branch            main       -> FETCH_HEAD
+   d910855..b0dc1ba  main       -> origin/main
+Updating d910855..b0dc1ba
+Fast-forward
+ main.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Mar 18 20:33:16 ip-172-31-32-4 python3[14252]: ModuleNotFoundError: No module named 'telebot'
+Mar 18 20:33:21 ip-172-31-32-4 python3[14254]: Traceback (most recent call last):
+Mar 18 20:33:21 ip-172-31-32-4 python3[14254]:   File "/home/ubuntu/st-checker-bot/file1.py", line 9, in <module>
+Mar 18 20:33:21 ip-172-31-32-4 python3[14254]:     import telebot
+Mar 18 20:33:21 ip-172-31-32-4 python3[14254]: ModuleNotFoundError: No module named 'telebot'
+Mar 18 20:33:23 ip-172-31-32-4 systemd[1]: Stopping ST-CHECKER Telegram Bot...
+Mar 18 20:33:23 ip-172-31-32-4 systemd[1]: st-checker-bot.service: Deactivated successfully.
+Mar 18 20:33:23 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER Telegram Bot.
+Mar 18 20:33:23 ip-172-31-32-4 systemd[1]: st-checker-bot.service: Consumed 3.395s CPU time.
+Mar 18 20:33:23 ip-172-31-32-4 systemd[1]: Started ST-CHECKER Telegram Bot.
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]:  * Serving Flask app ''
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]: [KEEP-ALIVE] Ping target → http://localhost:8099/ping  (port 80)
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]: Starting the bot...
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]:  * Debug mode: off
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]:  * Running on all addresses (0.0.0.0)
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]:  * Running on http://127.0.0.1:8099
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]:  * Running on http://172.31.32.4:8099
+Mar 18 20:33:23 ip-172-31-32-4 python3[14270]: Press CTRL+C to quit
+Mar 18 20:33:24 ip-172-31-32-4 python3[14276]: 2026-03-18 20:33:24,013 - INFO - Database initialized successfully
+Mar 18 20:33:24 ip-172-31-32-4 python3[14276]: 2026-03-18 20:33:24,015 - INFO - Auto backup scheduler started (every 24h)
+Mar 18 20:33:24 ip-172-31-32-4 python3[14276]: Bot Start On ✅
+Mar 18 20:33:24 ip-172-31-32-4 python3[14276]: Admin ID: 1053939190
+Mar 18 20:33:24 ip-172-31-32-4 python3[14276]: للتأكد من صلاحياتك، أرسل /amadmin
