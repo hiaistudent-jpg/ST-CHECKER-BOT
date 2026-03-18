@@ -1,0 +1,99 @@
+{
+  "goal": "Scan the entire project for sensitive information (secrets) and ensure nothing private is exposed before publishing to a public GitHub repository.",
+  "context": {
+    "project_type": "Python Telegram Bot",
+    "risk": "Bot token or API keys exposed publicly",
+    "priority": "security and privacy"
+  },
+  "instructions": [
+    {
+      "task": "Scan all files",
+      "details": "Search through all project files including .py, .json, .env, .md, .sh for any sensitive data."
+    },
+    {
+      "task": "Detect secrets",
+      "details": [
+        "Telegram BOT_TOKEN patterns",
+        "API keys",
+        "Passwords",
+        "AWS credentials (access key, secret key)",
+        "Private URLs with tokens",
+        "Hardcoded auth headers"
+      ]
+    },
+    {
+      "task": "Identify risky patterns",
+      "details": [
+        "Strings like 'token='",
+        "Long random strings",
+        "Authorization headers",
+        "Anything passed directly into bot initialization"
+      ]
+    },
+    {
+      "task": "Remove or secure secrets",
+      "details": [
+        "Replace hardcoded secrets with environment variables",
+        "Use os.getenv() in Python code",
+        "Remove secrets from code files",
+        "Move secrets to Replit Secrets or .env file"
+      ]
+    },
+    {
+      "task": "Sanitize .env usage",
+      "details": [
+        "Ensure .env file exists but is not exposed publicly",
+        "Create .env.example with placeholder values",
+        "Replace real values with placeholders like YOUR_BOT_TOKEN"
+      ]
+    },
+    {
+      "task": "Update .gitignore",
+      "details": [
+        "Add .env",
+        "Add any secret/config files",
+        "Ensure sensitive files are excluded from GitHub"
+      ]
+    },
+    {
+      "task": "Check commit history (if possible)",
+      "details": "Ensure secrets were not previously committed. If found, warn user to rotate credentials."
+    },
+    {
+      "task": "Validate code",
+      "details": [
+        "Ensure bot still works using environment variables",
+        "No hardcoded secrets remain",
+        "All sensitive data is externalized"
+      ]
+    }
+  ],
+  "secret_patterns": [
+    "BOT_TOKEN",
+    "API_KEY",
+    "SECRET_KEY",
+    "ACCESS_KEY",
+    "AUTH_TOKEN",
+    "PASSWORD"
+  ],
+  "output_requirements": {
+    "report": true,
+    "found_secrets": true,
+    "fixed_files": true,
+    "warnings": true,
+    "final_message": "Project is secure and safe for public GitHub"
+  },
+  "validation": {
+    "success_conditions": [
+      "No secrets remain in code",
+      "All sensitive data moved to environment variables",
+      ".env is ignored in git",
+      "Project runs successfully after changes"
+    ],
+    "error_handling": [
+      "If secret cannot be auto-fixed, flag clearly",
+      "If unsure, do not delete, warn instead",
+      "Advise token rotation if exposed"
+    ]
+  }
+}

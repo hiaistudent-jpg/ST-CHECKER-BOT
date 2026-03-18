@@ -22,9 +22,24 @@ htmlcov/
 .pytest_cache/
 *.log
 
-# Environment
+# Environment / Secrets — NEVER commit these
 .env
 .env.*
+!.env.example
+
+# Runtime data files — contain user data and keys
+data.json
+user_proxies.json
+user_amounts.json
+used_codes.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Card list (sensitive content)
+combo.txt
 
 # OS
 .DS_Store
