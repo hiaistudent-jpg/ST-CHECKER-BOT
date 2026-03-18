@@ -5628,6 +5628,18 @@ except Exception as _e:
 # ─────────────────────────────────────────────────────────────────────────────
 
 import sys
+import signal
+
+def _handle_sigterm(signum, frame):
+    print("[BOT] SIGTERM received — shutting down cleanly.")
+    try:
+        bot.stop_polling()
+    except:
+        pass
+    sys.exit(0)
+
+signal.signal(signal.SIGTERM, _handle_sigterm)
+
 while True:
     try:
         bot.infinity_polling(timeout=60, long_polling_timeout=30, logger_level=None)
