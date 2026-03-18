@@ -5595,16 +5595,16 @@ try:
     import platform, datetime as _dt
     _now = _dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     _online_msg = (
-        f"<b>╔══════════════════════╗\n"
-        f"║  🟢  BOT IS ONLINE!   ║\n"
-        f"╚══════════════════════╝\n\n"
-        f"🤖 <b>ST-CHECKER-BOT</b> started successfully!\n\n"
-        f"⏰ Time   : <code>{_now}</code>\n"
-        f"🖥️ Host   : <code>{platform.node()}</code>\n"
-        f"🐍 Python : <code>{platform.python_version()}</code>\n"
-        f"📡 Status : <b>Polling Active ✅</b>\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"[⌤] YADISTAN - 🍀</b>"
+        f"<b>┏━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
+        f"┃  🟢  BOT IS ONLINE  🟢   ┃\n"
+        f"┗━━━━━━━━━━━━━━━━━━━━━━━━━┛\n\n"
+        f"💀 <b>ST-CHECKER-BOT</b> — Started!\n\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n\n"
+        f"⏰  Time   »  <code>{_now}</code>\n"
+        f"🖥️  Host   »  <code>{platform.node()}</code>\n"
+        f"📡  Status »  <b>Polling Active ✅</b>\n\n"
+        f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+        f"      ⌤ YADISTAN - 🍀</b>"
     )
     bot.send_message(admin, _online_msg, parse_mode='HTML')
     print("[BOT] Online notification sent to admin.")
