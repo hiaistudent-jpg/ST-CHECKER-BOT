@@ -1755,7 +1755,7 @@ def start(message):
                 json.dump(existing_data, json_file, ensure_ascii=False, indent=4)
         if BL == '𝗙𝗥𝗘𝗘':        
             keyboard = types.InlineKeyboardMarkup()
-            contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/deep_sonic")
+            contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
             keyboard.add(contact_button)
             random_number = random.randint(33, 82)
             photo_url = f'https://t.me/bkddgfsa/{random_number}'
@@ -1767,11 +1767,11 @@ def start(message):
 𝗙𝗿𝗲𝗲 𝗯𝗼𝘁 𝗳𝗼𝗿 𝗮𝗹𝗹 𝗺𝘆 𝗳𝗿𝗶𝗲𝗻𝗱𝘀 𝗔𝗻𝗱 𝗮𝗻𝘆𝗼𝗻𝗲 𝗲𝗹𝘀𝗲 
 ━━━━━━━━━━━━━━━━━
 🌟 𝗚𝗼𝗼𝗱 𝗹𝘂𝗰𝗸!  
-『@deep_sonic』</b>
+『@yadistan』</b>
 ''', reply_markup=keyboard)
             return
         keyboard = types.InlineKeyboardMarkup()
-        contact_button = types.InlineKeyboardButton(text="R3D", url="https://t.me/deep_sonic")
+        contact_button = types.InlineKeyboardButton(text="YADISTAN", url="https://t.me/yadistan")
         keyboard.add(contact_button)
         username = message.from_user.first_name
         random_number = random.randint(33, 82)
@@ -1963,7 +1963,7 @@ def cmds_command(message):
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     keyboard.add(
         types.InlineKeyboardButton(text=f"📋 {plan_btn}", callback_data='plan'),
-        types.InlineKeyboardButton(text="💬 Support", url="https://t.me/deep_sonic")
+        types.InlineKeyboardButton(text="💬 Support", url="https://t.me/yadistan")
     )
     keyboard.add(
         types.InlineKeyboardButton(text="⚡ Ping Bot", callback_data='ping_inline'),
@@ -2099,7 +2099,7 @@ def cmds_command(message):
   🆔 /myid     » Your Telegram ID
 
 ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
-        ⌤ 𝗗𝗲𝘃 𝗯𝘆: R3D 🍀
+        ⌤ 𝗗𝗲𝘃 𝗯𝘆: YADISTAN 🍀
 ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰</b>"""
 
     bot.send_message(chat_id=message.chat.id, text=gw_msg, parse_mode='HTML', reply_markup=keyboard)
@@ -2132,7 +2132,7 @@ def paypal_command(message):
             required_duration = timedelta(hours=0)
             if current_time - provided_time > required_duration:
                 keyboard = types.InlineKeyboardMarkup()
-                contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/deep_sonic")
+                contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
                 keyboard.add(contact_button)
                 bot.send_message(chat_id=message.chat.id, text='''<b>𝗬𝗼𝘂 𝗖𝗮𝗻𝗻𝗼𝘁 𝗨𝘀𝗲 𝗧𝗵𝗲 𝗕𝗼𝘁 𝗕𝗲𝗰𝗮𝘂𝘀𝗲 𝗬𝗼𝘂𝗿 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 𝗛𝗮𝘀 𝗘𝘅𝗽𝗶𝗿𝗲𝗱</b>''', reply_markup=keyboard)
                 json_data[str(id)]['timer'] = 'none'
@@ -2170,7 +2170,7 @@ def paypal_command(message):
             status_emoji = "❌"
         
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+        minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
         minux_keyboard.add(minux_button)
         
         formatted_message = f"""<b>#pp_Gateway ${user_amount} 🔥
@@ -2186,7 +2186,7 @@ def paypal_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"""
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"""
         
         bot.edit_message_text(
             chat_id=message.chat.id,
@@ -2227,7 +2227,7 @@ def passed_command(message):
             required_duration = timedelta(hours=0)
             if current_time - provided_time > required_duration:
                 keyboard = types.InlineKeyboardMarkup()
-                contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/wan_ef")
+                contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/wan_ef")
                 keyboard.add(contact_button)
                 bot.send_message(chat_id=message.chat.id, text='''<b>𝗬𝗼𝘂 𝗖𝗮𝗻𝗻𝗼𝘁 𝗨𝘀𝗲 𝗧𝗵𝗲 𝗕𝗼𝘁 𝗕𝗲𝗰𝗮𝘂𝘀𝗲 𝗬𝗼𝘂𝗿 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 𝗛𝗮𝘀 𝗘𝘅𝗽𝗶𝗿𝗲𝗱</b>''', reply_markup=keyboard)
                 json_data[str(id)]['timer'] = 'none'
@@ -2263,7 +2263,7 @@ def passed_command(message):
             status_emoji = "❌"
         
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+        minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
         minux_keyboard.add(minux_button)
         
         formatted_message = f"""<b>#passed_Gateway $2.99 🔥
@@ -2279,7 +2279,7 @@ def passed_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"""
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"""
         
         bot.edit_message_text(
             chat_id=message.chat.id,
@@ -2353,7 +2353,7 @@ def stripe_charge_command(message):
             status_emoji = "❌"
 
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+        minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
         minux_keyboard.add(minux_button)
 
         formatted_message = f"""<b>{header_label}
@@ -2369,7 +2369,7 @@ def stripe_charge_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"""
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"""
 
         bot.edit_message_text(
             chat_id=message.chat.id,
@@ -2835,7 +2835,7 @@ def checkout_combined_command(message):
                     status_emoji = "❌"
 
                 minux_keyboard = types.InlineKeyboardMarkup()
-                minux_button = types.InlineKeyboardButton(text="@deep_sonic", url="https://t.me/deep_sonic")
+                minux_button = types.InlineKeyboardButton(text="@yadistan", url="https://t.me/yadistan")
                 minux_keyboard.add(minux_button)
 
                 formatted_message = (
@@ -2850,7 +2850,7 @@ def checkout_combined_command(message):
                     f"━━━━━━━━━━━━━━━━━━━━\n"
                     f"[⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n"
                     f"━━━━━━━━━━━━━━━━━━━━\n"
-                    f"[⌤] Bot by @deep_sonic</b>"
+                    f"[⌤] Bot by @yadistan</b>"
                 )
                 try:
                     bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id,
@@ -2893,7 +2893,7 @@ def checkout_combined_command(message):
                 footer_hits = ""
                 if hits:
                     footer_hits = f"\n━━━━━━━━━━━━━━━━━━━━\n🎯 𝗛𝗜𝗧𝗦:\n" + "".join(f"✅ <code>{h}</code>\n" for h in hits)
-                return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @deep_sonic</b>"
+                return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @yadistan</b>"
 
             for cc in card_lines:
                 if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
@@ -2973,7 +2973,7 @@ def checkout_combined_command(message):
                     pass
 
             minux_keyboard = types.InlineKeyboardMarkup()
-            minux_button = types.InlineKeyboardButton(text="@deep_sonic", url="https://t.me/deep_sonic")
+            minux_button = types.InlineKeyboardButton(text="@yadistan", url="https://t.me/yadistan")
             minux_keyboard.add(minux_button)
             try:
                 bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id,
@@ -3096,7 +3096,7 @@ def checkout_combined_command(message):
             footer_hits = ""
             if hits:
                 footer_hits = f"\n━━━━━━━━━━━━━━━━━━━━\n🎯 𝗛𝗜𝗧𝗦:\n" + "".join(f"{em} <code>{cc}</code>\n" for cc, res, em in hits)
-            return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @deep_sonic</b>"
+            return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @yadistan</b>"
 
         for cc in cards:
             if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
@@ -3182,7 +3182,7 @@ def checkout_combined_command(message):
                 pass
 
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_keyboard.add(types.InlineKeyboardButton(text="@deep_sonic", url="https://t.me/deep_sonic"))
+        minux_keyboard.add(types.InlineKeyboardButton(text="@yadistan", url="https://t.me/yadistan"))
         try:
             bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id,
                                   text=build_bin_msg("✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"), reply_markup=minux_keyboard)
@@ -3208,7 +3208,7 @@ def checkout_combined_command(message):
                 hits_text += "\n".join(insuf_lines) + "\n"
             if otp_lines:
                 hits_text += "\n".join(otp_lines) + "\n"
-            hits_text += f"━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @deep_sonic</b>"
+            hits_text += f"━━━━━━━━━━━━━━━━━━━━\n[⌤] Bot by @yadistan</b>"
             try:
                 bot.send_message(chat_id=message.chat.id, text=hits_text,
                                  reply_markup=minux_keyboard, parse_mode='HTML')
@@ -3373,9 +3373,9 @@ def stripe_checkout_gen_command(message):
                 footer = f"\n━━━━━━━━━━━━━━━━━━━━\n🎯 𝗛𝗜𝗧𝗦:\n"
                 for h in hits:
                     footer += f"✅ <code>{h}</code>\n"
-                footer += f"━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                footer += f"━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
             else:
-                footer = f"\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                footer = f"\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
             return header + body + footer
 
         for cc in cards:
@@ -3426,7 +3426,7 @@ def stripe_checkout_gen_command(message):
                 try:
                     bot.send_message(
                         chat_id=message.chat.id,
-                        text=f"<b>🎯 𝗛𝗜𝗧 𝗙𝗢𝗨𝗡𝗗! ✅\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n🔗 𝗟𝗶𝗻𝗸: <code>{checkout_url[:50]}...</code>\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                        text=f"<b>🎯 𝗛𝗜𝗧 𝗙𝗢𝗨𝗡𝗗! ✅\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n🔗 𝗟𝗶𝗻𝗸: <code>{checkout_url[:50]}...</code>\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
                     )
                 except:
                     pass
@@ -3437,7 +3437,7 @@ def stripe_checkout_gen_command(message):
                 try:
                     bot.send_message(
                         chat_id=message.chat.id,
-                        text=f"<b>⚠️ 𝗟𝗜𝗩𝗘 𝗖𝗔𝗥𝗗 (𝟯𝗗𝗦)!\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                        text=f"<b>⚠️ 𝗟𝗜𝗩𝗘 𝗖𝗔𝗥𝗗 (𝟯𝗗𝗦)!\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
                     )
                 except:
                     pass
@@ -3448,7 +3448,7 @@ def stripe_checkout_gen_command(message):
                 try:
                     bot.send_message(
                         chat_id=message.chat.id,
-                        text=f"<b>💰 𝗜𝗡𝗦𝗨𝗙𝗙𝗜𝗖𝗜𝗘𝗡𝗧 𝗙𝗨𝗡𝗗𝗦 (𝗟𝗜𝗩𝗘)!\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                        text=f"<b>💰 𝗜𝗡𝗦𝗨𝗙𝗙𝗜𝗖𝗜𝗘𝗡𝗧 𝗙𝗨𝗡𝗗𝗦 (𝗟𝗜𝗩𝗘)!\n━━━━━━━━━━━━━━━━━━━━\n💳 𝗖𝗮𝗿𝗱: <code>{cc}</code>\n📋 𝗥𝗲𝘀𝘂𝗹𝘁: {result}\n💳 𝗕𝗜𝗡: {bin_num} | {bin_info}\n🏦 𝗕𝗮𝗻𝗸: {bank}\n🌍 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country} {country_code}\n⏱️ 𝗧𝗶𝗺𝗲: {execution_time:.2f}s\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
                     )
                 except:
                     pass
@@ -3474,7 +3474,7 @@ def stripe_checkout_gen_command(message):
 
         try:
             minux_keyboard = types.InlineKeyboardMarkup()
-            minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+            minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
             minux_keyboard.add(minux_button)
             bot.edit_message_text(
                 chat_id=message.chat.id,
@@ -3540,7 +3540,7 @@ def stripe_mass_command(message):
             header += f"📊 {checked}/{total} | ✅ {live} | 💰 {insufficient} | ❌ {dead}\n"
             header += f"━━━━━━━━━━━━━━━━━━━━\n"
             body = "\n".join(results_lines[-15:])
-            footer = "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            footer = "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
             return header + body + footer
         
         for cc in cards:
@@ -3590,7 +3590,7 @@ def stripe_mass_command(message):
         
         try:
             minux_keyboard = types.InlineKeyboardMarkup()
-            minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+            minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
             minux_keyboard.add(minux_button)
             bot.edit_message_text(
                 chat_id=message.chat.id,
@@ -3651,7 +3651,7 @@ def stripe_auth_command(message):
             status_emoji = "❌"
         
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_button = types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic")
+        minux_button = types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan")
         minux_keyboard.add(minux_button)
         
         formatted_message = f"""<b>#stripe_auth 🔥
@@ -3666,7 +3666,7 @@ def stripe_auth_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"""
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"""
         
         bot.edit_message_text(
             chat_id=message.chat.id,
@@ -3718,7 +3718,7 @@ def chk_command(message):
         else:
             status_emoji = "❌"
         kb = types.InlineKeyboardMarkup()
-        kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+        kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(
             chat_id=message.chat.id, message_id=msg.message_id,
             text=f"""<b>#NonSK_Checker 🔍
@@ -3733,7 +3733,7 @@ def chk_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>""",
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>""",
             reply_markup=kb)
     threading.Thread(target=my_function).start()
 
@@ -3773,7 +3773,7 @@ def chkm_command(message):
         def build_msg(status="⏳ 𝗖𝗵𝗲𝗰𝗸𝗶𝗻𝗴..."):
             h = f"<b>🔍 𝗡𝗼𝗻-𝗦𝗞 𝗠𝗮𝘀𝘀 𝗖𝗵𝗲𝗰𝗸𝗲𝗿\n{status}\n━━━━━━━━━━━━━━━━━━━━\n"
             h += f"📊 {checked}/{total} | ✅ {live} | 💰 {insufficient} | ❌ {dead}\n━━━━━━━━━━━━━━━━━━━━\n"
-            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
         for cc in cards:
             if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                 try:
@@ -3802,7 +3802,7 @@ def chkm_command(message):
                 pass
         try:
             kb = types.InlineKeyboardMarkup()
-            kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+            kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
             bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=build_msg("✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"), reply_markup=kb)
         except:
             pass
@@ -3844,7 +3844,7 @@ def vbvm_command(message):
         def build_msg(status="⏳ 𝗖𝗵𝗲𝗰𝗸𝗶𝗻𝗴..."):
             h = f"<b>🛡️ 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝟯𝗗𝗦 𝗠𝗮𝘀𝘀\n{status}\n━━━━━━━━━━━━━━━━━━━━\n"
             h += f"📊 {checked}/{total} | ✅ {live} | ⚠️ {challenged} | ❌ {dead}\n━━━━━━━━━━━━━━━━━━━━\n"
-            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
         for cc in cards:
             if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                 try:
@@ -3870,7 +3870,7 @@ def vbvm_command(message):
                 pass
         try:
             kb = types.InlineKeyboardMarkup()
-            kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+            kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
             bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=build_msg("✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"), reply_markup=kb)
         except:
             pass
@@ -3954,7 +3954,7 @@ def sk_command(message):
         else:
             status_emoji = "❌"
         kb = types.InlineKeyboardMarkup()
-        kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+        kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(
             chat_id=message.chat.id, message_id=msg.message_id,
             text=f"""<b>#stripe_sk 🔑
@@ -3970,7 +3970,7 @@ def sk_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>""",
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>""",
             reply_markup=kb)
     threading.Thread(target=my_function).start()
 
@@ -4044,7 +4044,7 @@ def skm_command(message):
         def build_msg(status="⏳ 𝗖𝗵𝗲𝗰𝗸𝗶𝗻𝗴..."):
             h = f"<b>🔑 𝗦𝗞 𝗠𝗮𝘀𝘀 𝗖𝗵𝗲𝗰𝗸𝗲𝗿\n{status}\n━━━━━━━━━━━━━━━━━━━━\n"
             h += f"📊 {checked}/{total} | ✅ {live} | 💰 {insufficient} | ❌ {dead}\n━━━━━━━━━━━━━━━━━━━━\n"
-            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
         for cc in cards:
             if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                 try:
@@ -4074,7 +4074,7 @@ def skm_command(message):
                 pass
         try:
             kb = types.InlineKeyboardMarkup()
-            kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+            kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
             bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=build_msg("✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"), reply_markup=kb)
         except:
             pass
@@ -4175,7 +4175,7 @@ def skchk_command(message):
             details = f"[ϟ] 𝗘𝗿𝗿𝗼𝗿: {str(e)[:100]}"
 
         kb = types.InlineKeyboardMarkup()
-        kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+        kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(
             chat_id=message.chat.id, message_id=msg.message_id,
             text=f"""<b>#SK_Checker 🔑
@@ -4187,7 +4187,7 @@ def skchk_command(message):
 - - - - - - - - - - - - - - - - - - - - - - -
 [⌥] 𝗧𝗶𝗺𝗲: {execution_time:.2f}'s
 - - - - - - - - - - - - - - - - - - - - - - -
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>""",
+[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>""",
             reply_markup=kb)
     threading.Thread(target=my_function).start()
 
@@ -4234,7 +4234,7 @@ def msk_command(message):
         def build_msg(status="⏳ 𝗖𝗵𝗲𝗰𝗸𝗶𝗻𝗴..."):
             h = f"<b>🔑 𝗠𝗮𝘀𝘀 𝗦𝗞 𝗖𝗵𝗲𝗰𝗸𝗲𝗿\n{status}\n━━━━━━━━━━━━━━━━━━━━\n"
             h += f"📊 {checked}/{total} | ✅ {live} | ❌ {dead}\n━━━━━━━━━━━━━━━━━━━━\n"
-            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            return h + "\n".join(results_lines[-15:]) + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
         for sk in sk_keys:
             if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                 try:
@@ -4276,7 +4276,7 @@ def msk_command(message):
                 pass
         try:
             kb = types.InlineKeyboardMarkup()
-            kb.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+            kb.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
             bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=build_msg("✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"), reply_markup=kb)
         except:
             pass
@@ -4306,14 +4306,14 @@ def main(message):
             with open("data.json", 'w', encoding='utf-8') as json_file:
                 json.dump(existing_data, json_file, ensure_ascii=False, indent=4)       
             keyboard = types.InlineKeyboardMarkup()
-            contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/deep_sonic")
+            contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
             keyboard.add(contact_button)
             bot.send_message(chat_id=message.chat.id, text=f'''<b>🌟 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 {name}! 🌟
 
 𝗙𝗿𝗲𝗲 𝗯𝗼𝘁 𝗳𝗼𝗿 𝗮𝗹𝗹 𝗺𝘆 𝗳𝗿𝗶𝗲𝗻𝗱𝘀 𝗔𝗻𝗱 𝗮𝗻𝘆𝗼𝗻𝗲 𝗲𝗹𝘀𝗲 
 ━━━━━━━━━━━━━━━━━
 🌟 𝗚𝗼𝗼𝗱 𝗹𝘂𝗰𝗸!  
-『deep_sonic』</b>
+『yadistan』</b>
 ''',reply_markup=keyboard)
             return
         with open("data.json", 'r', encoding='utf-8') as file:
@@ -4323,21 +4323,21 @@ def main(message):
             provided_time = datetime.strptime(date_str, "%Y-%m-%d %H:%M")
         except Exception as e:
             keyboard = types.InlineKeyboardMarkup()
-            contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/deep_sonic")
+            contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
             keyboard.add(contact_button)
             bot.send_message(chat_id=message.chat.id, text=f'''<b>🌟 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 {name}! 🌟
 
 𝗙𝗿𝗲𝗲 𝗯𝗼𝘁 𝗳𝗼𝗿 𝗮𝗹𝗹 𝗺𝘆 𝗳𝗿𝗶𝗲𝗻𝗱𝘀 𝗔𝗻𝗱 𝗮𝗻𝘆𝗼𝗻𝗲 𝗲𝗹𝘀𝗲 
 ━━━━━━━━━━━━━━━━━
 🌟 𝗚𝗼𝗼𝗱 𝗹𝘂𝗰𝗸!  
-『R3D』</b>
+『YADISTAN』</b>
 ''',reply_markup=keyboard)
             return
         current_time = datetime.now()
         required_duration = timedelta(hours=0)
         if current_time - provided_time > required_duration:
             keyboard = types.InlineKeyboardMarkup()
-            contact_button = types.InlineKeyboardButton(text="R3D ", url="https://t.me/deep_sonic")
+            contact_button = types.InlineKeyboardButton(text="YADISTAN ", url="https://t.me/yadistan")
             keyboard.add(contact_button)
             bot.send_message(chat_id=message.chat.id, text=f'''<b>𝗬𝗼𝘂 𝗖𝗮𝗻𝗻𝗼𝘁 𝗨𝘀𝗲 𝗧𝗵𝗲 𝗕𝗼𝘁 𝗕𝗲𝗰𝗮𝘂𝘀𝗲 𝗬𝗼𝘂𝗿 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 𝗛𝗮𝘀 𝗘𝘅𝗽𝗶𝗿𝗲𝗱</b>
                 ''',reply_markup=keyboard)
@@ -4391,7 +4391,7 @@ def menu_callback_pp(call):
                     if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                         bot.edit_message_text(chat_id=call.message.chat.id, 
                                             message_id=call.message.message_id, 
-                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @deep_sonic')
+                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @yadistan')
                         return
                     
                     cc = cc.strip()
@@ -4438,7 +4438,7 @@ def menu_callback_pp(call):
 👻 𝗧𝗼𝘁𝗮𝗹: {total}
 ━━━━━━━━━━━━━━━━━
 💵 𝗔𝗺𝗼𝘂𝗻𝘁: ${user_amount}
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=mes, parse_mode='HTML')                                    
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=mes, parse_mode='HTML')                                    
                     
                     if stopuser.get(f'{id}', {}).get('status') == 'stop':
                         break
@@ -4449,7 +4449,7 @@ def menu_callback_pp(call):
         stopuser[f'{id}']['status'] = 'start'
         stop_event.clear()
         done_kb = types.InlineKeyboardMarkup()
-        done_kb.add(types.InlineKeyboardButton("R3D - 🍀", url="https://t.me/deep_sonic"))
+        done_kb.add(types.InlineKeyboardButton("YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(chat_id=call.message.chat.id, 
                       message_id=call.message.message_id, 
                       text=f'''<b>✅ 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘𝗗 | 𝗣𝗮𝘆𝗣𝗮𝗹 𝗚𝗮𝘁𝗲𝘄𝗮𝘆
@@ -4459,12 +4459,12 @@ def menu_callback_pp(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹 𝗖𝗵𝗲𝗰𝗸𝗲𝗱: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=done_kb, parse_mode='HTML')
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=done_kb, parse_mode='HTML')
         if live_cards or insuf_cards:
             all_hits = live_cards + insuf_cards
             hits_text = f"<b>💳 #pp_Gateway ${user_amount} — 𝗛𝗶𝘁𝘀 [{len(all_hits)}]\n━━━━━━━━━━━━━━━━━\n"
             hits_text += "\n".join(all_hits)
-            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>"
+            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>"
             bot.send_message(call.from_user.id, hits_text, parse_mode='HTML', reply_markup=done_kb)
     my_thread = threading.Thread(target=my_function)
     my_thread.start()
@@ -4498,7 +4498,7 @@ def menu_callback_passed(call):
                     if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                         bot.edit_message_text(chat_id=call.message.chat.id, 
                                             message_id=call.message.message_id, 
-                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @deep_sonic')
+                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @yadistan')
                         return
                     
                     cc = cc.strip()
@@ -4540,7 +4540,7 @@ def menu_callback_passed(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=mes, parse_mode='HTML')                                    
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=mes, parse_mode='HTML')                                    
                     
                     if stopuser.get(f'{id}', {}).get('status') == 'stop':
                         break
@@ -4551,7 +4551,7 @@ def menu_callback_passed(call):
         stopuser[f'{id}']['status'] = 'start'
         stop_event.clear()
         done_kb = types.InlineKeyboardMarkup()
-        done_kb.add(types.InlineKeyboardButton("R3D - 🍀", url="https://t.me/deep_sonic"))
+        done_kb.add(types.InlineKeyboardButton("YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(chat_id=call.message.chat.id, 
                       message_id=call.message.message_id, 
                       text=f'''<b>✅ 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘𝗗 | 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝗩𝗕𝗩
@@ -4561,11 +4561,11 @@ def menu_callback_passed(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹 𝗖𝗵𝗲𝗰𝗸𝗲𝗱: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=done_kb, parse_mode='HTML')
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=done_kb, parse_mode='HTML')
         if live_cards:
             hits_text = f"<b>🛡️ #vbv_Gateway $2.99 — 𝗛𝗶𝘁𝘀 [{len(live_cards)}]\n━━━━━━━━━━━━━━━━━\n"
             hits_text += "\n".join(live_cards)
-            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>"
+            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>"
             bot.send_message(call.from_user.id, hits_text, parse_mode='HTML', reply_markup=done_kb)
     my_thread = threading.Thread(target=my_function)
     my_thread.start()
@@ -4600,7 +4600,7 @@ def menu_callback_stripe_charge(call):
                     if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                         bot.edit_message_text(chat_id=call.message.chat.id, 
                                             message_id=call.message.message_id, 
-                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @deep_sonic')
+                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @yadistan')
                         return
                     
                     cc = cc.strip()
@@ -4647,7 +4647,7 @@ def menu_callback_stripe_charge(call):
 👻 𝗧𝗼𝘁𝗮𝗹: {total}
 ━━━━━━━━━━━━━━━━━
 💵 𝗔𝗺𝗼𝘂𝗻𝘁: $1.00
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=mes, parse_mode='HTML')                                    
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=mes, parse_mode='HTML')                                    
                     
                     if stopuser.get(f'{id}', {}).get('status') == 'stop':
                         break
@@ -4658,7 +4658,7 @@ def menu_callback_stripe_charge(call):
         stopuser[f'{id}']['status'] = 'start'
         stop_event.clear()
         done_kb = types.InlineKeyboardMarkup()
-        done_kb.add(types.InlineKeyboardButton("R3D - 🍀", url="https://t.me/deep_sonic"))
+        done_kb.add(types.InlineKeyboardButton("YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(chat_id=call.message.chat.id, 
                       message_id=call.message.message_id, 
                       text=f'''<b>✅ 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘𝗗 | 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗮𝗿𝗴𝗲
@@ -4668,12 +4668,12 @@ def menu_callback_stripe_charge(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹 𝗖𝗵𝗲𝗰𝗸𝗲𝗱: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=done_kb, parse_mode='HTML')
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=done_kb, parse_mode='HTML')
         if live_cards or insuf_cards:
             all_hits = live_cards + insuf_cards
             hits_text = f"<b>⚡ #stripe_charge $1.00 — 𝗛𝗶𝘁𝘀 [{len(all_hits)}]\n━━━━━━━━━━━━━━━━━\n"
             hits_text += "\n".join(all_hits)
-            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>"
+            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>"
             bot.send_message(call.from_user.id, hits_text, parse_mode='HTML', reply_markup=done_kb)
     my_thread = threading.Thread(target=my_function)
     my_thread.start()
@@ -4708,7 +4708,7 @@ def menu_callback_stripe_auth(call):
                     if stopuser.get(f'{id}', {}).get('status') == 'stop' or stop_event.is_set():
                         bot.edit_message_text(chat_id=call.message.chat.id, 
                                             message_id=call.message.message_id, 
-                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @deep_sonic')
+                                            text='🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗 ✅ 🤖 𝗕𝗢𝗧 𝗯𝘆 ➜ @yadistan')
                         return
                     
                     cc = cc.strip()
@@ -4756,7 +4756,7 @@ def menu_callback_stripe_auth(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=mes, parse_mode='HTML')                                    
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=mes, parse_mode='HTML')                                    
                     
                     if stopuser.get(f'{id}', {}).get('status') == 'stop':
                         break
@@ -4767,7 +4767,7 @@ def menu_callback_stripe_auth(call):
         stopuser[f'{id}']['status'] = 'start'
         stop_event.clear()
         done_kb = types.InlineKeyboardMarkup()
-        done_kb.add(types.InlineKeyboardButton("R3D - 🍀", url="https://t.me/deep_sonic"))
+        done_kb.add(types.InlineKeyboardButton("YADISTAN - 🍀", url="https://t.me/yadistan"))
         bot.edit_message_text(chat_id=call.message.chat.id, 
                       message_id=call.message.message_id, 
                       text=f'''<b>✅ 𝗖𝗢𝗠𝗣𝗟𝗘𝗧𝗘𝗗 | 𝗦𝘁𝗿𝗶𝗽𝗲 𝗔𝘂𝘁𝗵
@@ -4778,12 +4778,12 @@ def menu_callback_stripe_auth(call):
 ❌ 𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱: {dd}
 👻 𝗧𝗼𝘁𝗮𝗹 𝗖𝗵𝗲𝗰𝗸𝗲𝗱: {total}
 ━━━━━━━━━━━━━━━━━
-[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>''', reply_markup=done_kb, parse_mode='HTML')
+[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>''', reply_markup=done_kb, parse_mode='HTML')
         all_hits = live_cards + insuf_cards + otp_cards
         if all_hits:
             hits_text = f"<b>🔐 #stripe_auth — 𝗛𝗶𝘁𝘀 [{len(all_hits)}]\n━━━━━━━━━━━━━━━━━\n"
             hits_text += "\n".join(all_hits)
-            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @deep_sonic</b>"
+            hits_text += f"\n━━━━━━━━━━━━━━━━━\n[⌤] 𝗕𝗼𝘁 𝗯𝘆 @yadistan</b>"
             bot.send_message(call.from_user.id, hits_text, parse_mode='HTML', reply_markup=done_kb)
     my_thread = threading.Thread(target=my_function)
     my_thread.start()
@@ -4823,7 +4823,7 @@ def respond_to_vbv(message):
             mark_code_as_used(code)
             
             msg = f'''<b>𓆩 𝗞𝗲𝘆 𝗥𝗲𝗱𝗲𝗲𝗺𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𓆪 ✅
-💎 𝗗𝗲𝘃 : 『@deep_sonic』
+💎 𝗗𝗲𝘃 : 『@yadistan』
 ⏳ 𝗧𝗶𝗺𝗲 : {timer}  ✅
 📝 𝗧𝘆𝗽𝗲 : {typ}</b>'''
             bot.reply_to(message, msg, parse_mode="HTML")
@@ -4866,7 +4866,7 @@ def create_code(message):
             part1 = ''.join(random.choices(characters, k=4))
             part2 = ''.join(random.choices(characters, k=4))
             part3 = ''.join(random.choices(characters, k=4))
-            pas = f"R3D-{part1}-{part2}-{part3}"
+            pas = f"YADISTAN-{part1}-{part2}-{part3}"
             
             # حساب وقت الانتهاء
             current_time = datetime.now()
@@ -5001,10 +5001,10 @@ def scrape_proxy_command(message):
             file_bytes = BytesIO(proxy_text.encode())
             file_bytes.name = "proxies_scraped.txt"
             bot.send_document(message.chat.id, file_bytes,
-                caption=f"<b>🕷️ 𝗣𝗿𝗼𝘅𝘆 𝗦𝗰𝗿𝗮𝗽𝗲𝗿 ✅ — {len(display)} 𝗽𝗿𝗼𝘅𝗶𝗲𝘀\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>",
+                caption=f"<b>🕷️ 𝗣𝗿𝗼𝘅𝘆 𝗦𝗰𝗿𝗮𝗽𝗲𝗿 ✅ — {len(display)} 𝗽𝗿𝗼𝘅𝗶𝗲𝘀\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>",
                 parse_mode='HTML')
         else:
-            full_msg = header + f"<code>{proxy_text}</code>\n<b>━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            full_msg = header + f"<code>{proxy_text}</code>\n<b>━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
             try:
                 bot.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id,
                     text=full_msg)
@@ -5164,7 +5164,7 @@ def check_proxy_command(message):
                     f"[ϟ] 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {country}\n"
                     f"[ϟ] 𝗜𝗦𝗣: {info}\n"
                     f"━━━━━━━━━━━━━━━━━━━━\n"
-                    f"[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                    f"[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
                 )
             else:
                 result_text = (
@@ -5174,7 +5174,7 @@ def check_proxy_command(message):
                     f"[ϟ] 𝗦𝘁𝗮𝘁𝘂𝘀: ❌ 𝗗𝗘𝗔𝗗\n"
                     f"[ϟ] 𝗥𝗲𝗮𝘀𝗼𝗻: {info}\n"
                     f"━━━━━━━━━━━━━━━━━━━━\n"
-                    f"[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+                    f"[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
                 )
             try:
                 bot.edit_message_text(chat_id=message.chat.id, message_id=wait_msg.message_id,
@@ -5236,7 +5236,7 @@ def check_proxy_command(message):
                     f"✅ 𝗟𝗜𝗩𝗘 𝗣𝗥𝗢𝗫𝗜𝗘𝗦:\n" +
                     "".join(f"✅ <code>{p}</code>\n" for p in last_live)
                 )
-            return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"
+            return header + body + footer_hits + "\n━━━━━━━━━━━━━━━━━━━━\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>"
 
         from queue import Queue as TQueue
         proxy_queue = TQueue()
@@ -5290,7 +5290,7 @@ def check_proxy_command(message):
             t.join(timeout=1)
 
         minux_keyboard = types.InlineKeyboardMarkup()
-        minux_keyboard.add(types.InlineKeyboardButton(text="R3D - 🍀", url="https://t.me/deep_sonic"))
+        minux_keyboard.add(types.InlineKeyboardButton(text="YADISTAN - 🍀", url="https://t.me/yadistan"))
 
         final_status = "🛑 𝗦𝗧𝗢𝗣𝗣𝗘𝗗" if stopped[0] else "✅ 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱!"
         try:
@@ -5305,7 +5305,7 @@ def check_proxy_command(message):
             file_bytes = BytesIO(live_text.encode())
             file_bytes.name = "live_proxies.txt"
             bot.send_document(message.chat.id, file_bytes,
-                caption=f"<b>✅ {len(live_list)} 𝗟𝗶𝘃𝗲 𝗣𝗿𝗼𝘅𝗶𝗲𝘀 (𝗼𝘂𝘁 𝗼𝗳 {total})\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>",
+                caption=f"<b>✅ {len(live_list)} 𝗟𝗶𝘃𝗲 𝗣𝗿𝗼𝘅𝗶𝗲𝘀 (𝗼𝘂𝘁 𝗼𝗳 {total})\n[⌤] 𝗗𝗲𝘃 𝗯𝘆: YADISTAN - 🍀</b>",
                 parse_mode='HTML')
 
     my_thread = threading.Thread(target=my_function)
