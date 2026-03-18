@@ -93,3 +93,9 @@ def keep_alive():
 
     ping_thread = Thread(target=self_ping, daemon=True)
     ping_thread.start()
+
+
+if __name__ == '__main__':
+    ping_thread = Thread(target=self_ping, daemon=True)
+    ping_thread.start()
+    run()
