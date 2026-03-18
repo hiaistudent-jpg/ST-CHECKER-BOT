@@ -1,0 +1,49 @@
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ sudo systemctl stop webhook
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ cat > ~/st-checker-bot/webhook_listener.py << 'PYEOF'
+import hashlib
+import hmac
+import json
+import logging
+import os
+import subprocess
+from flask import Flask, request, jsonify
+
+WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "").encode()
+PORT           = int(os.environ.get("WEBHOOK_PORT", 9000))
+BOT_DIR        = os.path.expanduser("~/st-checker-bot")
+UPDATE_SCRIPT  = os.path.join(BOT_DIR, "update.sh")
+LOG_FILE       = os.path.join(BOT_DIR, "webhook.log")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
+app = Flask(__name__)
+
+def verify_signature(payload, sig_header):
+    if not WEBHOOK_SECRET:
+        return True
+    if not sig_header or not sig_header.startswith("sha256="):
+        return False
+    expected = "sha256=" + hmac.new(WEBHOOK_SECRET, payload, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected, sig_header)
+
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({"status": "Webhook listener is running"}), 200
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    sig = request.headers.get("X-Hub-Signature-256", "")
+    if not verify_signature(request.data, sig):
+        logger.warning("Unauthorized request.")
+        return jsonify({"error": "Unauthorized"}), 401
+    event = request.headers.get("X-GitHub-Event", "unknown")
+    try:
+PYEOFpp.run(host="0.0.0.0", port=PORT, debug=False)", "pid": result.pid}), 200IPE, stderr=subprocess.STDOUT, cwd=BOT_DIR)
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ ls -la ~/st-checker-bot/update.sh && chmod +x ~/st-checker-bot/update.sh
+ls: cannot access '/home/ubuntu/st-checker-bot/update.sh': No such file or directory
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$
