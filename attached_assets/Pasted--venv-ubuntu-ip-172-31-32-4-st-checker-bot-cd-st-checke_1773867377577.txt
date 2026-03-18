@@ -1,0 +1,40 @@
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ cd ~/st-checker-bot && git pull origin main
+From https://github.com/hiaistudent-jpg/ST-CHECKER-BOT
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ python3 -c "import secrets; print(secrets.token_hex(32))"
+de7f075eb9c27aa7fcc581fb09b5f046421e1c48409d7e512befa4b1e23b505c
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ sudo cp webhook.service /etc/systemd/system/
+sudo nano /etc/systemd/system/webhook.service
+cp: cannot stat 'webhook.service': No such file or directory
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ sudo systemctl daemon-reload
+sudo systemctl enable webhook
+sudo systemctl start webhook
+sudo systemctl status webhook
+The unit files have no installation config (WantedBy=, RequiredBy=, Also=,
+Alias= settings in the [Install] section, and DefaultInstance= for template
+units). This means they are not meant to be enabled using systemctl.
+
+Possible reasons for having this kind of units are:
+• A unit may be statically enabled by being symlinked from another unit's
+  .wants/ or .requires/ directory.
+• A unit's purpose may be to act as a helper for some other unit which has
+  a requirement dependency on it.
+• A unit may be started when needed via activation (socket, path, timer,
+  D-Bus, udev, scripted systemctl call, ...).
+• In case of template units, the unit is meant to be enabled with some
+  instance name specified.
+Failed to start webhook.service: Unit webhook.service has a bad unit file setting.
+See system logs and 'systemctl status webhook.service' for details.
+○ webhook.service
+     Loaded: bad-setting (Reason: Unit webhook.service has a bad unit file setting.)
+     Active: inactive (dead)
+
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: /etc/systemd/system/webhook.service:1: Assignment outside of section. Ignoring.
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: /etc/systemd/system/webhook.service:1: Assignment outside of section. Ignoring.
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: webhook.service: Service has no ExecStart=, ExecStop=, or SuccessAction=. Refusin>
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: /etc/systemd/system/webhook.service:1: Assignment outside of section. Ignoring.
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: webhook.service: Service has no ExecStart=, ExecStop=, or SuccessAction=. Refusin>
+Mar 18 20:55:32 ip-172-31-32-4 systemd[1]: /etc/systemd/system/webhook.service:1: Assignment outside of section. Ignoring.
+lines 1-10/10 (END)
+
