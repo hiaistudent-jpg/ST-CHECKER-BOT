@@ -1335,8 +1335,23 @@ def stripe_auth(ccx, proxy_dict=None):
             return "Approved Otp"
         elif 'Your card number is incorrect.' in r5:
             return 'CVC Error'
+        elif 'do_not_honor' in r5 or 'generic_decline' in r5:
+            return 'Declined - Do Not Honor'
+        elif 'authentication_required' in r5 or 'requires_action' in r5:
+            return 'Approved OTP'
+        elif 'incorrect_number' in r5:
+            return 'Declined - Incorrect Number'
+        elif 'stolen_card' in r5 or 'lost_card' in r5:
+            return 'Declined - Lost/Stolen'
+        elif 'pickup_card' in r5:
+            return 'Declined - Pickup Card'
+        elif 'restricted_card' in r5:
+            return 'Declined - Restricted'
+        elif 'error' in r5.lower() or 'invalid' in r5.lower():
+            return f'Declined'
         else:
-            return "Unknown Response"
+            snippet = r5.strip()[:60].replace('\n', ' ')
+            return f"Unknown - {snippet}"
     except Exception as e:
         return f"Error: {str(e)[:50]}"
 
