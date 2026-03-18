@@ -1,5 +1,28 @@
 # Workspace
 
+## Telegram Bot (ST-CHECKER-BOT)
+
+A Python Telegram bot for checking credit card validity through multiple payment gateways.
+
+### Files
+- `bot/main.py` — Watchdog process that auto-restarts the bot on crash
+- `bot/file1.py` — Main bot logic (commands, handlers, gateway calls)
+- `bot/gatet.py` — Payment gateway functions (PayPal, Braintree, etc.)
+- `bot/database.py` — SQLite database for user/query/card-check logging
+- `bot/keep_alive.py` — Flask server (port 8099) for uptime monitoring + self-ping
+- `bot/data.json` — User plan data (FREE/VIP)
+- `bot/user_proxies.json` — Per-user proxy settings
+- `bot/user_amounts.json` — Per-user charge amount settings
+
+### Required Secrets
+- `BOT_TOKEN` — Telegram bot token from @BotFather
+- `ADMIN_ID` — Telegram user ID of the bot admin
+
+### Workflow
+- **Telegram Bot** — runs `cd bot && python3 main.py` (console, port 8099)
+
+
+
 ## Overview
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.

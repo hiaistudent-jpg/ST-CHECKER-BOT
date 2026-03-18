@@ -9,7 +9,7 @@ print("Starting the bot...")
 
 while True:
     try:
-        result = subprocess.run(["python", "file 1.py"])
+        result = subprocess.run(["python3", "file1.py"])
         exit_code = result.returncode
         print(f"[WATCHDOG] Bot exited with code {exit_code}. Restarting in 5s...")
     except Exception as e:

@@ -12,7 +12,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # BASE_URL_PORT → external port           (80 for HTTP, 443 for HTTPS)
 BASE_URL      = os.environ.get('BASE_URL', '').strip().rstrip('/')
 BASE_URL_PORT = int(os.environ.get('BASE_URL_PORT', '80'))
-_INTERNAL_PORT = 8080
+_INTERNAL_PORT = 8099
 # ──────────────────────────────────────────────────────────────────────────────
 
 app = Flask('')
