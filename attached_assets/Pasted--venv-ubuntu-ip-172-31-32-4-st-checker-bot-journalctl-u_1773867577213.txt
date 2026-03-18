@@ -1,0 +1,32 @@
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$ journalctl -u webhook -n 30 --no-pager
+Mar 18 20:59:07 ip-172-31-32-4 systemd[1]: webhook.service: Scheduled restart job, restart counter is at 11.
+Mar 18 20:59:07 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:07 ip-172-31-32-4 systemd[1]: Started ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:07 ip-172-31-32-4 python3[14569]: /home/ubuntu/st-checker-bot/venv/bin/python3: can't open file '/home/ubuntu/st-checker-bot/webhook_listener.py': [Errno 2] No such file or directory
+Mar 18 20:59:07 ip-172-31-32-4 systemd[1]: webhook.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Mar 18 20:59:07 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+Mar 18 20:59:12 ip-172-31-32-4 systemd[1]: webhook.service: Scheduled restart job, restart counter is at 12.
+Mar 18 20:59:12 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:12 ip-172-31-32-4 systemd[1]: Started ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:12 ip-172-31-32-4 python3[14570]: /home/ubuntu/st-checker-bot/venv/bin/python3: can't open file '/home/ubuntu/st-checker-bot/webhook_listener.py': [Errno 2] No such file or directory
+Mar 18 20:59:12 ip-172-31-32-4 systemd[1]: webhook.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Mar 18 20:59:12 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+Mar 18 20:59:17 ip-172-31-32-4 systemd[1]: webhook.service: Scheduled restart job, restart counter is at 13.
+Mar 18 20:59:17 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:17 ip-172-31-32-4 systemd[1]: Started ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:17 ip-172-31-32-4 python3[14571]: /home/ubuntu/st-checker-bot/venv/bin/python3: can't open file '/home/ubuntu/st-checker-bot/webhook_listener.py': [Errno 2] No such file or directory
+Mar 18 20:59:17 ip-172-31-32-4 systemd[1]: webhook.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Mar 18 20:59:17 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+Mar 18 20:59:22 ip-172-31-32-4 systemd[1]: webhook.service: Scheduled restart job, restart counter is at 14.
+Mar 18 20:59:22 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:22 ip-172-31-32-4 systemd[1]: Started ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:22 ip-172-31-32-4 python3[14572]: /home/ubuntu/st-checker-bot/venv/bin/python3: can't open file '/home/ubuntu/st-checker-bot/webhook_listener.py': [Errno 2] No such file or directory
+Mar 18 20:59:22 ip-172-31-32-4 systemd[1]: webhook.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Mar 18 20:59:22 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: webhook.service: Scheduled restart job, restart counter is at 15.
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: Stopped ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: Started ST-CHECKER GitHub Webhook Listener.
+Mar 18 20:59:28 ip-172-31-32-4 python3[14573]: /home/ubuntu/st-checker-bot/venv/bin/python3: can't open file '/home/ubuntu/st-checker-bot/webhook_listener.py': [Errno 2] No such file or directory
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: webhook.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Mar 18 20:59:28 ip-172-31-32-4 systemd[1]: webhook.service: Failed with result 'exit-code'.
+(venv) ubuntu@ip-172-31-32-4:~/st-checker-bot$
