@@ -1,0 +1,83 @@
+{
+  "goal": "Deploy and run a Telegram bot on Replit using Python, ensuring it stays online and responds correctly.",
+  "context": {
+    "platform": "Replit",
+    "language": "Python",
+    "bot_type": "Telegram Bot",
+    "requirements": [
+      "Bot token is already available",
+      "Code may use requests or python-telegram-bot",
+      "Bot should run continuously"
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "Create project",
+      "details": "Create a new Python Repl environment"
+    },
+    {
+      "step": 2,
+      "action": "Setup dependencies",
+      "details": "Install required packages like requests, python-telegram-bot, flask (if needed)",
+      "commands": [
+        "pip install requests",
+        "pip install python-telegram-bot",
+        "pip install flask"
+      ]
+    },
+    {
+      "step": 3,
+      "action": "Add bot code",
+      "details": "Create main.py and paste the provided Telegram bot code"
+    },
+    {
+      "step": 4,
+      "action": "Secure token",
+      "details": "Store BOT_TOKEN inside Replit Secrets (Environment Variables) instead of hardcoding"
+    },
+    {
+      "step": 5,
+      "action": "Modify code",
+      "details": "Update code to load token from environment variable using os.getenv('BOT_TOKEN')"
+    },
+    {
+      "step": 6,
+      "action": "Keep bot alive",
+      "details": "If using polling, ensure infinite loop runs. If needed, use Flask server to keep Replit instance active"
+    },
+    {
+      "step": 7,
+      "action": "Run bot",
+      "details": "Execute main.py and confirm bot connects to Telegram API successfully"
+    },
+    {
+      "step": 8,
+      "action": "Testing",
+      "details": "Send a message to the bot on Telegram and verify response"
+    },
+    {
+      "step": 9,
+      "action": "Deployment stability",
+      "details": "Enable 'Always On' or use uptime monitor (like UptimeRobot) to prevent sleep"
+    }
+  ],
+  "validation": {
+    "success_conditions": [
+      "Bot starts without errors",
+      "Bot responds to Telegram messages",
+      "No token exposed in code",
+      "Bot runs continuously"
+    ],
+    "error_handling": [
+      "If bot crashes, check logs",
+      "If no response, verify token",
+      "If dependency error, reinstall packages"
+    ]
+  },
+  "output_format": {
+    "logs": true,
+    "status_updates": true,
+    "final_message": "Bot deployed successfully and running"
+  }
+}
