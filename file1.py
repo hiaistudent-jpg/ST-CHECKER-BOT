@@ -5328,24 +5328,29 @@ def ping_inline_callback(call):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'stats_inline')
 def stats_inline_callback(call):
-    uid = call.from_user.id
     try:
         total_users   = db.get_user_count()
-        total_checks  = db.get_total_checks()
-        today_checks  = db.get_today_checks()
-        live_count    = db.get_result_count('live')
-        dead_count    = db.get_result_count('dead')
+        total_checks  = db.get_card_checks_count()
+        total_queries = db.get_all_queries_count()
+        today         = db.get_today_stats()
+        today_checks  = today.get('checks', 0)
+        today_live    = today.get('approved', 0)
+        today_active  = today.get('active_users', 0)
         bot.answer_callback_query(
             call.id,
-            f"📊 Stats\n"
-            f"👥 Users: {total_users}\n"
-            f"🔍 Total Checks: {total_checks}\n"
-            f"📅 Today: {today_checks}\n"
-            f"✅ Live: {live_count}  ❌ Dead: {dead_count}",
+            f"📊 Bot Statistics\n"
+            f"━━━━━━━━━━━━━━━\n"
+            f"👥 Total Users   : {total_users}\n"
+            f"🔍 Total Checks  : {total_checks}\n"
+            f"📋 Total Queries : {total_queries}\n"
+            f"━━━━━━━━━━━━━━━\n"
+            f"📅 Today Checks  : {today_checks}\n"
+            f"✅ Today Live    : {today_live}\n"
+            f"🧑 Today Active  : {today_active}",
             show_alert=True
         )
     except Exception as e:
-        bot.answer_callback_query(call.id, f"❌ Could not fetch stats: {str(e)[:80]}", show_alert=True)
+        bot.answer_callback_query(call.id, f"❌ Stats error: {str(e)[:80]}", show_alert=True)
 
 @bot.message_handler(commands=["dbstats"])
 def dbstats_command(message):
