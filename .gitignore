@@ -61,3 +61,6 @@ Thumbs.db
 .local/
 .upm/
 .pythonlibs/
+
+# Attached assets (user uploads — not needed in repo)
+attached_assets/
