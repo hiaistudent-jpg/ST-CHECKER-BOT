@@ -1,0 +1,115 @@
+{
+  "goal": "Generate a high-quality, visually appealing, and well-documented README.md file for a Telegram bot project suitable for GitHub.",
+  "context": {
+    "project_type": "Python Telegram Bot",
+    "platform": "Replit + AWS EC2",
+    "target_audience": "Developers and beginners",
+    "style": "clean, modern, attractive, easy to read"
+  },
+  "instructions": [
+    {
+      "task": "Analyze project",
+      "details": "Understand project structure, main.py functionality, commands (/ping, /status, /stats), and deployment setup (setup.sh)."
+    },
+    {
+      "task": "Create README structure",
+      "details": [
+        "Project Title",
+        "Short description",
+        "Features section",
+        "Demo/Preview section",
+        "Installation guide",
+        "Usage instructions",
+        "Commands list",
+        "Deployment (Replit + AWS EC2)",
+        "Environment variables",
+        "Project structure",
+        "Contributing",
+        "License"
+      ]
+    },
+    {
+      "task": "Write engaging introduction",
+      "details": "Create a strong opening with emojis and clean formatting. Explain what the bot does in simple terms."
+    },
+    {
+      "task": "Highlight features",
+      "details": [
+        "List commands like /ping, /status, /stats",
+        "Mention fast performance",
+        "Mention easy deployment",
+        "Use bullet points with emojis"
+      ]
+    },
+    {
+      "task": "Commands section",
+      "details": "Explain each command clearly with examples and expected output style."
+    },
+    {
+      "task": "Installation guide",
+      "details": [
+        "Clone repo",
+        "Install dependencies",
+        "Set BOT_TOKEN",
+        "Run bot"
+      ]
+    },
+    {
+      "task": "Deployment section",
+      "details": [
+        "Explain Replit deployment",
+        "Explain one-click EC2 setup using setup.sh",
+        "Keep instructions beginner-friendly"
+      ]
+    },
+    {
+      "task": "Environment variables",
+      "details": "Explain BOT_TOKEN usage and security best practices."
+    },
+    {
+      "task": "Formatting",
+      "details": [
+        "Use Markdown properly",
+        "Add headers, code blocks, and spacing",
+        "Use emojis but keep balance",
+        "Make it visually clean and scannable"
+      ]
+    },
+    {
+      "task": "Add badges (optional)",
+      "details": "Include GitHub badges like Python version, license, status if possible."
+    },
+    {
+      "task": "Project structure section",
+      "details": "Show clean folder structure in code block."
+    },
+    {
+      "task": "Final polish",
+      "details": [
+        "Ensure no grammar mistakes",
+        "Keep tone friendly and professional",
+        "Avoid unnecessary complexity"
+      ]
+    }
+  ],
+  "output_requirements": {
+    "file_name": "README.md",
+    "format": "Markdown",
+    "quality": "high",
+    "style": "eye-catching but clean",
+    "final_message": "README.md generated successfully"
+  },
+  "validation": {
+    "success_conditions": [
+      "README is complete and well structured",
+      "Instructions are clear and usable",
+      "Commands are properly explained",
+      "Formatting is clean and attractive"
+    ],
+    "error_handling": [
+      "If missing project info, infer from code",
+      "Do not leave sections empty",
+      "Keep content concise but informative"
+    ]
+  }
+}
