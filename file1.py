@@ -1943,7 +1943,7 @@ def bin_command(message):
     my_thread = threading.Thread(target=my_function)
     my_thread.start()
 
-@bot.message_handler(commands=["cmds"])
+@bot.message_handler(commands=["cmds", "help"])
 def cmds_command(message):
     with open("data.json", 'r', encoding='utf-8') as file:
         json_data = json.load(file)
@@ -1956,136 +1956,153 @@ def cmds_command(message):
     current_amount = get_user_amount(id)
     is_vip = BL != '𝗙𝗥𝗘𝗘'
 
-    lock = "🔓" if is_vip else "🔒"
-    plan_badge = "⭐ 𝗩𝗜𝗣" if is_vip else "🆓 𝗙𝗥𝗘𝗘"
+    lock  = "🔓" if is_vip else "🔒"
+    vip_tag  = "╔[ ⭐ VIP MEMBER ]╗" if is_vip else "╔[ 🆓 FREE PLAN  ]╗"
+    plan_btn = "⭐ VIP — Upgrade" if not is_vip else "⭐ VIP — Active"
 
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     keyboard.add(
-        types.InlineKeyboardButton(text=f"📋 𝗣𝗹𝗮𝗻: {BL}", callback_data='plan'),
-        types.InlineKeyboardButton(text="💬 𝗦𝘂𝗽𝗽𝗼𝗿𝘁", url="https://t.me/deep_sonic")
+        types.InlineKeyboardButton(text=f"📋 {plan_btn}", callback_data='plan'),
+        types.InlineKeyboardButton(text="💬 Support", url="https://t.me/deep_sonic")
+    )
+    keyboard.add(
+        types.InlineKeyboardButton(text="⚡ Ping Bot", callback_data='ping_inline'),
+        types.InlineKeyboardButton(text="📊 My Stats", callback_data='stats_inline')
     )
 
-    gw_msg = f"""<b>╔══════════════════════╗
-║   🤖 𝗛𝗮𝗰𝗸𝗲𝗿𝘀 𝗣𝗮𝗿𝗮𝗱𝗶𝘀𝗲 𝗕𝗼𝘁  ║
-╚══════════════════════╝
+    gw_msg = f"""<b>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  💀  ST-CHECKER-BOT  💀  ┃
+┃   Premium Card Checker   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-👋 𝗛𝗲𝘆 {name}! | 𝗣𝗹𝗮𝗻: {plan_badge}
-━━━━━━━━━━━━━━━━━━━━━━
+👤 User  : {name}
+{vip_tag}
+💵 Amount: ${current_amount}
 
-🔍 𝗡𝗢𝗡-𝗦𝗞 𝗖𝗛𝗘𝗖𝗞𝗘𝗥𝗦 {lock} 𝗩𝗜𝗣 𝗢𝗻𝗹𝘆
-━━━━━━━━━━━━━━━━━━━━━━
-🔍 /chk — 𝗦𝗶𝗻𝗴𝗹𝗲 𝗖𝗮𝗿𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Usage: /chk 4111111111111111|12|25|123</i>
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-📦 /chkm — 𝗠𝗮𝘀𝘀 𝗖𝗮𝗿𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Up to 50 cards at once</i>
-━━━━━━━━━━━━━━━━━━━━━━
+🔥 ━━[ NON-SK CHECKERS {lock} VIP ]━━ 🔥
 
-💳 𝗚𝗔𝗧𝗘𝗪𝗔𝗬𝗦 {lock} 𝗩𝗜𝗣 𝗢𝗻𝗹𝘆
-━━━━━━━━━━━━━━━━━━━━━━
-💰 /pp — 𝗣𝗮𝘆𝗣𝗮𝗹 𝗚𝗮𝘁𝗲𝘄𝗮𝘆
-   <i>└ Charge ${current_amount} via PayPal</i>
+  🔍 /chk   » Single Card Checker
+     <i>└ /chk 4111111111111111|12|25|123</i>
 
-🛡️ /vbv — 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝟯𝗗𝗦 (𝗩𝗕𝗩)
-   <i>└ Passed Gateway — $2.99 auth check</i>
+  📦 /chkm  » Mass Card Checker
+     <i>└ Up to 50 cards at once</i>
 
-🛡️ /vbvm — 𝗕𝗿𝗮𝗶𝗻𝘁𝗿𝗲𝗲 𝟯𝗗𝗦 𝗠𝗮𝘀𝘀
-   <i>└ Bulk Braintree check — up to 50 cards</i>
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-⚡ /st — 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗮𝗿𝗴𝗲 $𝟭
-   <i>└ Direct Stripe charge — fast check</i>
+💳 ━━━[ PAYMENT GATEWAYS {lock} VIP ]━━━ 💳
 
-🔐 /sa — 𝗦𝘁𝗿𝗶𝗽𝗲 𝗔𝘂𝘁𝗵
-   <i>└ Stripe auth-only (no charge)</i>
+  💰 /pp    » PayPal Gateway
+     <i>└ Charge ${current_amount} via PayPal</i>
 
-🔗 /co — 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗲𝗰𝗸𝗼𝘂𝘁
-   <i>└ Card mode or BIN auto-gen mode</i>
-   <i>└ Usage: /co &lt;url&gt; then card or BIN</i>
+  🛡️ /vbv   » Braintree 3DS (VBV)
+     <i>└ $2.99 auth — 3D Secure check</i>
 
-🚀 /stm — 𝗦𝘁𝗿𝗶𝗽𝗲 𝗠𝗮𝘀𝘀 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Bulk check multiple cards at once</i>
+  🛡️ /vbvm  » Braintree 3DS Mass
+     <i>└ Bulk VBV check — up to 50 cards</i>
 
-🎰 /scogen — 𝗦𝘁𝗿𝗶𝗽𝗲 𝗖𝗵𝗲𝗰𝗸𝗼𝘂𝘁 + 𝗚𝗲𝗻
-   <i>└ Auto-generate & check via checkout</i>
+  ⚡ /st    » Stripe Charge $1
+     <i>└ Direct Stripe — ultra fast</i>
 
-🎰 /cb — 𝗖𝗵𝗲𝗰𝗸𝗼𝘂𝘁 + 𝗚𝗲𝗻 (alias)
-   <i>└ Same as /scogen</i>
-━━━━━━━━━━━━━━━━━━━━━━
+  🔐 /sa    » Stripe Auth Only
+     <i>└ Auth without charge</i>
 
-🔑 𝗦𝗞 𝗖𝗛𝗘𝗖𝗞𝗘𝗥𝗦 {lock} 𝗩𝗜𝗣 𝗢𝗻𝗹𝘆
-━━━━━━━━━━━━━━━━━━━━━━
-🔑 /sk — 𝗦𝗞 𝗦𝗶𝗻𝗴𝗹𝗲 𝗖𝗮𝗿𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Usage: /sk sk_live_xxx</i>
-   <i>└        4111111111111111|12|25|123</i>
+  🔗 /co    » Stripe Checkout
+     <i>└ /co &lt;url&gt; → card or BIN mode</i>
 
-📦 /skm — 𝗦𝗞 𝗠𝗮𝘀𝘀 𝗖𝗮𝗿𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Usage: /skm sk_live_xxx</i>
-   <i>└        card1 / card2 / ... (max 50)</i>
+  🚀 /stm   » Stripe Mass Checker
+     <i>└ Bulk Stripe — multiple cards</i>
 
-✅ /skchk — 𝗦𝗞 𝗞𝗲𝘆 𝗟𝗶𝘃𝗲/𝗗𝗲𝗮𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Checks if SK key is LIVE or DEAD</i>
-   <i>└ Shows balance, email, account, charges</i>
-   <i>└ Usage: /skchk sk_live_xxxxxx</i>
+  🎰 /scogen » Stripe Checkout + Gen
+     <i>└ Auto-generate & check via checkout</i>
 
-🔎 /msk — 𝗠𝗮𝘀𝘀 𝗦𝗞 𝗟𝗶𝘃𝗲/𝗗𝗲𝗮𝗱 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ Bulk check SK keys — LIVE or DEAD (max 30)</i>
-   <i>└ Shows balance & livemode per key</i>
-   <i>└ Usage: /msk</i>
-   <i>└        sk_live_key1</i>
-   <i>└        sk_live_key2</i>
-━━━━━━━━━━━━━━━━━━━━━━
+  🎰 /cb    » Checkout + Gen (alias)
+     <i>└ Same as /scogen</i>
 
-🃏 𝗖𝗔𝗥𝗗 𝗧𝗢𝗢𝗟𝗦 🆓 𝗙𝗿𝗲𝗲
-━━━━━━━━━━━━━━━━━━━━━━
-🎰 /gen — 𝗖𝗮𝗿𝗱 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗼𝗿
-   <i>└ Generate cards from BIN</i>
-   <i>└ Usage: /gen 411111</i>
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-🔎 /bin — 𝗕𝗜𝗡 𝗟𝗼𝗼𝗸𝘂𝗽
-   <i>└ Get bank, country, card type info</i>
-   <i>└ Usage: /bin 411111</i>
-━━━━━━━━━━━━━━━━━━━━━━
+🔑 ━━━━[ SK CHECKERS {lock} VIP ]━━━━ 🔑
 
-🌐 𝗣𝗥𝗢𝗫𝗬 𝗧𝗢𝗢𝗟𝗦 🆓 𝗙𝗿𝗲𝗲
-━━━━━━━━━━━━━━━━━━━━━━
-➕ /addproxy — 𝗦𝗲𝘁 𝗣𝗿𝗼𝘅𝘆
-   <i>└ HTTP / SOCKS5 / SOCKS4</i>
+  🔑 /sk    » SK Single Card Checker
+     <i>└ /sk sk_live_xxx</i>
+     <i>└ 4111111111111111|12|25|123</i>
 
-➖ /removeproxy — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗣𝗿𝗼𝘅𝘆
+  📦 /skm   » SK Mass Card Checker
+     <i>└ /skm sk_live_xxx → card1 card2...</i>
 
-✅ /proxycheck — 𝗩𝗲𝗿𝗶𝗳𝘆 𝗠𝘆 𝗣𝗿𝗼𝘅𝘆
+  ✅ /skchk » SK Key Live/Dead Checker
+     <i>└ Balance • Email • Charges info</i>
+     <i>└ /skchk sk_live_xxxxxx</i>
 
-🕷️ /scr — 𝗦𝗰𝗿𝗮𝗽𝗲 𝗣𝗿𝗼𝘅𝗶𝗲𝘀
-   <i>└ FREE: 50 | VIP: 500 proxies</i>
+  🔎 /msk   » Mass SK Live/Dead Checker
+     <i>└ Bulk check up to 30 SK keys</i>
+     <i>└ /msk → sk_live_key1 sk_live_key2</i>
 
-⚡ /chkpxy — 𝗣𝗿𝗼𝘅𝘆 𝗖𝗵𝗲𝗰𝗸𝗲𝗿
-   <i>└ HTTP/SOCKS5/SOCKS4 auto-detect</i>
-   <i>└ Bulk: 10 threads at once (max 500)</i>
-   <i>└ Reply mode: reply any proxy list</i>
-━━━━━━━━━━━━━━━━━━━━━━
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-📊 𝗛𝗜𝗦𝗧𝗢𝗥𝗬 & 𝗦𝗧𝗔𝗧𝗦 🆓 𝗙𝗿𝗲𝗲
-━━━━━━━━━━━━━━━━━━━━━━
-📜 /history — 𝗬𝗼𝘂𝗿 𝗟𝗮𝘀𝘁 𝟭𝟬 𝗖𝗵𝗲𝗰𝗸𝘀
-   <i>└ Card BIN, gateway, result, time</i>
-━━━━━━━━━━━━━━━━━━━━━━
+🃏 ━━━━[ CARD TOOLS 🆓 FREE ]━━━━ 🃏
 
-⚙️ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦
-━━━━━━━━━━━━━━━━━━━━━━
-💵 /setamount — 𝗦𝗲𝘁 𝗣𝗮𝘆𝗣𝗮𝗹 𝗔𝗺𝗼𝘂𝗻𝘁
-   <i>└ Current: ${current_amount}</i>
+  🎰 /gen   » Card Generator
+     <i>└ /gen 411111 &nbsp;&nbsp;(default: 20 cards)</i>
+     <i>└ /gen 411111 50 (max: 50 cards)</i>
 
-🔑 /setsk — 𝗦𝗲𝘁 𝗦𝘁𝗿𝗶𝗽𝗲 𝗦𝗞 𝗞𝗲𝘆 {lock}
-   <i>└ Your own SK key for /sk gateway</i>
-   <i>└ Usage: /setsk sk_live_xxxxxx</i>
+  🔎 /bin   » BIN Lookup
+     <i>└ Brand • Bank • Country • Type</i>
+     <i>└ /bin 411111</i>
 
-👁️ /mysk — 𝗩𝗶𝗲𝘄 𝗦𝗞 𝗦𝘁𝗮𝘁𝘂𝘀 {lock}
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-🗑️ /delsk — 𝗥𝗲𝗺𝗼𝘃𝗲 𝗦𝗞 𝗞𝗲𝘆 {lock}
-━━━━━━━━━━━━━━━━━━━━━━
-[⌤] 𝗗𝗲𝘃 𝗯𝘆: R3D - 🍀</b>"""
+🌐 ━━━━[ PROXY TOOLS 🆓 FREE ]━━━━ 🌐
 
-    bot.send_message(chat_id=message.chat.id, text=gw_msg, reply_markup=keyboard)
+  ➕ /addproxy    » Set Proxy
+     <i>└ HTTP / SOCKS5 / SOCKS4</i>
+
+  ➖ /removeproxy » Remove Proxy
+
+  ✅ /proxycheck  » Test My Proxy
+
+  🕷️ /scr         » Scrape Proxies
+     <i>└ FREE: 50 │ VIP: 500 proxies</i>
+
+  ⚡ /chkpxy      » Proxy Checker
+     <i>└ Bulk • 10 threads • max 500</i>
+
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+📊 ━━━━[ STATS & HISTORY 🆓 ]━━━━ 📊
+
+  📜 /history » Last 10 Card Checks
+     <i>└ BIN • Gateway • Result • Time</i>
+
+  📡 /ping    » Bot Latency Check
+
+  🖥️ /status  » Uptime & Environment
+
+  📈 /stats   » Global Usage Stats
+
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+⚙️ ━━━━━━[ SETTINGS ]━━━━━━ ⚙️
+
+  💵 /setamount » Set Charge Amount
+     <i>└ Current: ${current_amount}</i>
+
+  🔑 /setsk    » Set Stripe SK Key {lock}
+     <i>└ /setsk sk_live_xxxxxx</i>
+
+  👁️ /mysk     » View SK Status {lock}
+
+  🗑️ /delsk    » Remove SK Key {lock}
+
+  🆔 /myid     » Your Telegram ID
+
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+        ⌤ 𝗗𝗲𝘃 𝗯𝘆: R3D 🍀
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰</b>"""
+
+    bot.send_message(chat_id=message.chat.id, text=gw_msg, parse_mode='HTML', reply_markup=keyboard)
 
 @bot.message_handler(commands=["pp"])
 def paypal_command(message):
@@ -5300,6 +5317,35 @@ def menu_callback(call):
     stopuser[f'{id}']['status'] = 'stop'
     stop_event.set()
     bot.answer_callback_query(call.id, "🛑 𝗦𝘁𝗼𝗽𝗽𝗶𝗻𝗴...", show_alert=False)
+
+@bot.callback_query_handler(func=lambda call: call.data == 'ping_inline')
+def ping_inline_callback(call):
+    import time as _time
+    t1 = _time.time()
+    bot.answer_callback_query(call.id, "Pinging...", show_alert=False)
+    latency = round((_time.time() - t1) * 1000)
+    bot.answer_callback_query(call.id, f"🏓 Pong! Latency: {latency}ms", show_alert=True)
+
+@bot.callback_query_handler(func=lambda call: call.data == 'stats_inline')
+def stats_inline_callback(call):
+    uid = call.from_user.id
+    try:
+        total_users   = db.get_user_count()
+        total_checks  = db.get_total_checks()
+        today_checks  = db.get_today_checks()
+        live_count    = db.get_result_count('live')
+        dead_count    = db.get_result_count('dead')
+        bot.answer_callback_query(
+            call.id,
+            f"📊 Stats\n"
+            f"👥 Users: {total_users}\n"
+            f"🔍 Total Checks: {total_checks}\n"
+            f"📅 Today: {today_checks}\n"
+            f"✅ Live: {live_count}  ❌ Dead: {dead_count}",
+            show_alert=True
+        )
+    except Exception as e:
+        bot.answer_callback_query(call.id, f"❌ Could not fetch stats: {str(e)[:80]}", show_alert=True)
 
 @bot.message_handler(commands=["dbstats"])
 def dbstats_command(message):
