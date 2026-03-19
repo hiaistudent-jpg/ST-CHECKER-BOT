@@ -74,9 +74,25 @@ def _get_cards_from_message(message):
         text = parts[1].strip()
     elif message.reply_to_message and message.reply_to_message.text:
         text = message.reply_to_message.text.strip()
+    elif message.reply_to_message and message.reply_to_message.document:
+        try:
+            doc = message.reply_to_message.document
+            file_info = bot.get_file(doc.file_id)
+            downloaded = bot.download_file(file_info.file_path)
+            text = downloaded.decode('utf-8', errors='ignore')
+        except:
+            return None
     else:
         return None
-    cards = [l.strip() for l in text.split('\n') if CARD_RE.search(l.strip())]
+    cards = []
+    seen = set()
+    for l in text.split('\n'):
+        m = CARD_RE.search(l.strip())
+        if m:
+            cc = m.group().replace('/', '|').replace(' ', '|')
+            if cc not in seen:
+                seen.add(cc)
+                cards.append(cc)
     return cards if cards else None
 
 def get_user_plan(user_id):
