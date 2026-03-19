@@ -5329,9 +5329,23 @@ def check_proxy_command(message):
 @bot.callback_query_handler(func=lambda call: call.data == 'stop')
 def menu_callback(call):
     id = call.from_user.id
-    stopuser[f'{id}']['status'] = 'stop'
+    try:
+        stopuser[f'{id}']['status'] = 'stop'
+    except:
+        stopuser[f'{id}'] = {'status': 'stop'}
     stop_event.set()
-    bot.answer_callback_query(call.id, "🛑 𝗦𝘁𝗼𝗽𝗽𝗶𝗻𝗴...", show_alert=False)
+    bot.answer_callback_query(call.id, "🛑 Stopped!", show_alert=False)
+    try:
+        orig = call.message.text or call.message.caption or ""
+        first_line = orig.split('\n')[0] if orig else "Checker"
+        bot.edit_message_text(
+            chat_id=call.message.chat.id,
+            message_id=call.message.message_id,
+            text=f"{first_line}\n\n<b>🛑 STOPPED by user.</b>",
+            parse_mode='HTML'
+        )
+    except:
+        pass
 
 @bot.callback_query_handler(func=lambda call: call.data == 'ping_inline')
 def ping_inline_callback(call):
