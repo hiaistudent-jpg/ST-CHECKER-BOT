@@ -5630,6 +5630,198 @@ except Exception as _e:
 import sys
 import signal
 
+# =================== TXT File Upload Handler ===================
+_pending_files = {}
+
+@bot.message_handler(content_types=['document'])
+def handle_document(message):
+    def process():
+        id = message.from_user.id
+        try:
+            with open("data.json", 'r', encoding='utf-8') as f:
+                jd = json.load(f)
+            BL = jd.get(str(id), {}).get('plan', '𝗙𝗥𝗘𝗘')
+        except:
+            BL = '𝗙𝗥𝗘𝗘'
+        if BL == '𝗙𝗥𝗘𝗘' and id != admin:
+            bot.reply_to(message, "<b>❌ 𝗩𝗜𝗣 𝗼𝗻𝗹𝘆 𝗳𝗲𝗮𝘁𝘂𝗿𝗲.</b>", parse_mode='HTML')
+            return
+        doc = message.document
+        if not doc.file_name.lower().endswith('.txt'):
+            return
+        try:
+            file_info = bot.get_file(doc.file_id)
+            downloaded = bot.download_file(file_info.file_path)
+            content = downloaded.decode('utf-8', errors='ignore')
+        except Exception as e:
+            bot.reply_to(message, f"<b>❌ File download failed: {e}</b>", parse_mode='HTML')
+            return
+        raw_lines = content.strip().split('\n')
+        cc_pattern = re.compile(r'\d{13,19}[|/ ]\d{1,2}[|/ ]\d{2,4}[|/ ]\d{3,4}')
+        seen = set()
+        cards = []
+        for line in raw_lines:
+            line = line.strip()
+            m = cc_pattern.search(line)
+            if m:
+                cc = m.group().replace('/', '|').replace(' ', '|')
+                if cc not in seen:
+                    seen.add(cc)
+                    cards.append(cc)
+        if not cards:
+            bot.reply_to(message, "<b>❌ No valid cards found in file.</b>", parse_mode='HTML')
+            return
+        dupes = len([l for l in raw_lines if l.strip()]) - len(cards)
+        _pending_files[id] = {
+            'cards': cards,
+            'chat_id': message.chat.id,
+            'msg_id': message.message_id,
+            'file_name': doc.file_name
+        }
+        kb = types.InlineKeyboardMarkup(row_width=2)
+        kb.add(
+            types.InlineKeyboardButton("⚡ Stripe Auth", callback_data='fchk_sa'),
+            types.InlineKeyboardButton("💳 Stripe Charge", callback_data='fchk_st'),
+        )
+        kb.add(
+            types.InlineKeyboardButton("🛡️ Braintree VBV", callback_data='fchk_vbv'),
+            types.InlineKeyboardButton("💰 PayPal", callback_data='fchk_pp'),
+        )
+        kb.add(
+            types.InlineKeyboardButton("🔍 Non-SK Auth", callback_data='fchk_nonsk'),
+        )
+        bot.reply_to(
+            message,
+            f"<b>📂 CC File Detected!\n\n"
+            f"📄 File  : <code>{doc.file_name}</code>\n"
+            f"💳 Cards : <code>{len(cards)}</code>\n"
+            f"🗑️ Dupes  : <code>{max(dupes, 0)}</code>\n\n"
+            f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n\n"
+            f"⚡ Select gateway to start checking:</b>",
+            parse_mode='HTML', reply_markup=kb
+        )
+    threading.Thread(target=process).start()
+
+
+def _is_success(result, gw):
+    r = result.lower()
+    if gw in ('sa', 'nonsk'):
+        return 'approved' in r
+    elif gw == 'st':
+        return 'charged' in r or 'approved' in r or 'insufficient' in r
+    elif gw == 'vbv':
+        return '3ds authenticate' in r or 'authenticate_successful' in r or 'attempt_successful' in r
+    elif gw == 'pp':
+        return 'charge' in r or 'approved' in r
+    return False
+
+
+def _run_file_check(call, gw):
+    id = call.from_user.id
+    data = _pending_files.get(id)
+    if not data:
+        bot.answer_callback_query(call.id, "❌ No file found. Please upload again.")
+        return
+    cards = data['cards']
+    chat_id = data['chat_id']
+    file_name = data['file_name']
+    total = len(cards)
+    proxy = get_proxy_dict(id)
+    gw_names = {'sa': '⚡ Stripe Auth', 'st': '💳 Stripe Charge',
+                'vbv': '🛡️ Braintree VBV', 'pp': '💰 PayPal', 'nonsk': '🔍 Non-SK'}
+    gw_label = gw_names.get(gw, gw.upper())
+    checked = success = failed = 0
+    try:
+        stopuser[f'{id}']['status'] = 'start'
+    except:
+        stopuser[f'{id}'] = {'status': 'start'}
+    stop_kb = types.InlineKeyboardMarkup()
+    stop_kb.add(types.InlineKeyboardButton("🛑 Stop", callback_data='stop'))
+    msg = bot.send_message(
+        chat_id,
+        f"<b>📂 {gw_label} — File Checker\n"
+        f"📄 {file_name} | 💳 {total} cards\n"
+        f"⏳ Starting...</b>",
+        parse_mode='HTML', reply_markup=stop_kb
+    )
+    def build_status():
+        return (
+            f"<b>📂 {gw_label} — File Checker\n"
+            f"📄 {file_name}\n"
+            f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+            f"📊 {checked}/{total} | ✅ {success} | ❌ {failed}\n"
+            f"▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
+            f"⌤ YADISTAN - 🍀</b>"
+        )
+    last_edit = [time.time()]
+    for cc in cards:
+        if stopuser.get(f'{id}', {}).get('status') == 'stop':
+            try:
+                bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id,
+                                      text=build_status().replace("⌤", "🛑 Stopped | ⌤"),
+                                      parse_mode='HTML')
+            except:
+                pass
+            return
+        if gw == 'sa' or gw == 'nonsk':
+            result = stripe_auth(cc, proxy)
+        elif gw == 'st':
+            result = stripe_charge(cc, proxy)
+        elif gw == 'vbv':
+            result = passed_gate(cc, proxy)
+        elif gw == 'pp':
+            result = paypal_gate(cc, get_user_amount(id), proxy)
+        else:
+            result = stripe_auth(cc, proxy)
+        checked += 1
+        if _is_success(result, gw):
+            success += 1
+            try:
+                bot.send_message(
+                    chat_id,
+                    f"<b>✅ APPROVED!\n"
+                    f"━━━━━━━━━━━━━━━━━━━━\n"
+                    f"💳 Card   : <code>{cc}</code>\n"
+                    f"📡 Result : {result}\n"
+                    f"🌐 Gate   : {gw_label}\n"
+                    f"━━━━━━━━━━━━━━━━━━━━\n"
+                    f"⌤ YADISTAN - 🍀</b>",
+                    parse_mode='HTML'
+                )
+            except:
+                pass
+        else:
+            failed += 1
+        if time.time() - last_edit[0] > 2:
+            try:
+                bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id,
+                                      text=build_status(), parse_mode='HTML',
+                                      reply_markup=stop_kb)
+                last_edit[0] = time.time()
+            except:
+                pass
+    try:
+        bot.edit_message_text(chat_id=chat_id, message_id=msg.message_id,
+                              text=build_status().replace("⌤", "✅ Done! | ⌤"),
+                              parse_mode='HTML')
+    except:
+        pass
+    del _pending_files[id]
+
+
+@bot.callback_query_handler(func=lambda c: c.data.startswith('fchk_'))
+def file_check_callback(call):
+    gw = call.data.replace('fchk_', '')
+    bot.answer_callback_query(call.id, "⚡ Starting...")
+    try:
+        bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+    except:
+        pass
+    threading.Thread(target=_run_file_check, args=(call, gw)).start()
+
+# ===============================================================
+
+
 def _handle_sigterm(signum, frame):
     print("[BOT] SIGTERM received — shutting down cleanly.")
     try:
